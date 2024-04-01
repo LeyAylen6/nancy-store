@@ -4,7 +4,6 @@ import com.nancystore.api.models.Product;
 import com.nancystore.api.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
