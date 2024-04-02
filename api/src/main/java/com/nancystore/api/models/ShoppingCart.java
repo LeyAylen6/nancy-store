@@ -1,7 +1,6 @@
 package com.nancystore.api.models;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 
 @Entity
