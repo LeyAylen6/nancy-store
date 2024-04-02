@@ -1,10 +1,10 @@
-package com.nancystore.api.utils.mappers;
+package com.nancystore.api.utils;
 
 import com.nancystore.api.dtos.ProductDTO;
 import com.nancystore.api.models.Product;
 
-public class ProductDTOMapToProduct {
-    public static Product convert(ProductDTO product) {
+public class Mapper {
+    public static Product ProductDTOToProduct(ProductDTO product) {
         return new Product(
                 null,
                 product.getName(),

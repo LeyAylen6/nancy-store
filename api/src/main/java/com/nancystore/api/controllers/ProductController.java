@@ -5,12 +5,8 @@ import com.nancystore.api.models.Product;
 import com.nancystore.api.services.ProductService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
@@ -40,7 +36,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public Product deleteById(@PathVariable String id) {
-        return productService.deleteById(id);
+    public void deleteById(@PathVariable String id) {
+        productService.deleteById(id);
     }
 }
