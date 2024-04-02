@@ -40,7 +40,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public Product deleteById(@PathVariable String id) {
-        return productService.deleteById(id);
+    public void deleteById(@PathVariable String id) {
+        productService.deleteById(id);
     }
 }

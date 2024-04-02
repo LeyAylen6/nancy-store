@@ -3,11 +3,10 @@ package com.nancystore.api.services;
 import com.nancystore.api.dtos.ProductDTO;
 import com.nancystore.api.models.Product;
 import com.nancystore.api.repositories.ProductRepository;
-import com.nancystore.api.utils.mappers.ProductDTOMapToProduct;
+import com.nancystore.api.utils.Mapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -20,44 +19,30 @@ public class ProductService {
     }
 
     public Product findById(String id) {
-        Optional<Product> productFound = productRepository.findById(id);
-        if(productFound.isEmpty()) {
-            throw new RuntimeException("Do not exist any product with this id");
-        }
-
-        return productFound.get();
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Do not exist any product with this id"));
     }
 
     public Product save(ProductDTO product) {
-        Product newProduct = ProductDTOMapToProduct.convert(product);
+        Product newProduct = Mapper.ProductDTOToProduct(product);
         productRepository.save(newProduct);
 
         return newProduct;
     }
 
     public Product updateById(String id, ProductDTO product) {
-        Optional<Product> productFound = productRepository.findById(id);
-        if(productFound.isEmpty()) {
-            throw new RuntimeException("Product id do not exist");
-        }
+        Product productFound = this.findById(id);
+        productFound.merge(product);
 
-        Product productUpdated = ProductDTOMapToProduct.convert(product);
-        productUpdated.setId(id);
+        productRepository.save(productFound);
 
-        productRepository.save(productUpdated);
-
-        return productUpdated;
+        return productFound;
     }
 
-    public Product deleteById(String id) {
-        Optional<Product> productFound = productRepository.findById(id);
-        if(productFound.isEmpty()) {
-            throw new RuntimeException("Product id do not exist");
-        }
+    public void deleteById(String id) {
+        this.findById(id);
 
         productRepository.deleteById(id);
-
-        return productFound.get();
     }
 
 }
