@@ -1,6 +1,5 @@
 package com.nancystore.api.dtos;
 
-import com.nancystore.api.models.Product;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 

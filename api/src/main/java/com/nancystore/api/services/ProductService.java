@@ -1,5 +1,6 @@
 package com.nancystore.api.services;
 
+import com.nancystore.api.Exceptions.ProductNotFoundException;
 import com.nancystore.api.dtos.ProductDTO;
 import com.nancystore.api.models.Product;
 import com.nancystore.api.repositories.ProductRepository;
@@ -20,7 +21,7 @@ public class ProductService {
 
     public Product findById(String id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Do not exist any product with this id"));
+                .orElseThrow(ProductNotFoundException::new);
     }
 
     public Product save(ProductDTO product) {
