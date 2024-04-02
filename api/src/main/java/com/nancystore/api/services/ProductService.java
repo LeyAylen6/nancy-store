@@ -1,7 +1,9 @@
 package com.nancystore.api.services;
 
+import com.nancystore.api.dtos.ProductDTO;
 import com.nancystore.api.models.Product;
 import com.nancystore.api.repositories.ProductRepository;
+import com.nancystore.api.utils.Mapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -16,11 +18,31 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Product save(Product product) {
-        Product newProduct = new Product(null, product.getName(), product.getPrice(), product.getDescription());
+    public Product findById(String id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Do not exist any product with this id"));
+    }
+
+    public Product save(ProductDTO product) {
+        Product newProduct = Mapper.ProductDTOToProduct(product);
         productRepository.save(newProduct);
 
         return newProduct;
+    }
+
+    public Product updateById(String id, ProductDTO product) {
+        Product productFound = this.findById(id);
+        productFound.merge(product);
+
+        productRepository.save(productFound);
+
+        return productFound;
+    }
+
+    public void deleteById(String id) {
+        this.findById(id);
+
+        productRepository.deleteById(id);
     }
 
 }
