@@ -1,4 +1,4 @@
-package com.nancystore.api.Exceptions;
+package com.nancystore.api.exceptions;
 
 import com.nancystore.api.dtos.ErrorDTO;
 import lombok.extern.slf4j.Slf4j;

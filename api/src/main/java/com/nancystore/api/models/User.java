@@ -1,10 +1,8 @@
 package com.nancystore.api.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Builder;
+import java.util.ArrayList;
 
 @Entity
 @Builder
@@ -16,9 +14,12 @@ public class User {
 
     private String name;
 
-    private Integer number;
+    private Integer phone;
 
     private String email;
 
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private ArrayList<ShoppingCart> orders;
 }
