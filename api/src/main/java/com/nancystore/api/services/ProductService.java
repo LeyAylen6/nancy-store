@@ -1,6 +1,6 @@
 package com.nancystore.api.services;
 
-import com.nancystore.api.Exceptions.ProductNotFoundException;
+import com.nancystore.api.exceptions.ProductNotFoundException;
 import com.nancystore.api.dtos.ProductDTO;
 import com.nancystore.api.models.Product;
 import com.nancystore.api.repositories.ProductRepository;

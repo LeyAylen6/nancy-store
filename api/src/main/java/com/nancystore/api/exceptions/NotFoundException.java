@@ -1,7 +1,6 @@
-package com.nancystore.api.Exceptions;
+package com.nancystore.api.exceptions;
 
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
 
 @Getter
 public abstract class NotFoundException extends RuntimeException {

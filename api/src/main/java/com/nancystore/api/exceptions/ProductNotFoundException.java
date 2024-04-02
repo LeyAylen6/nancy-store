@@ -1,4 +1,4 @@
-package com.nancystore.api.Exceptions;
+package com.nancystore.api.exceptions;
 
 public class ProductNotFoundException extends NotFoundException {
 
