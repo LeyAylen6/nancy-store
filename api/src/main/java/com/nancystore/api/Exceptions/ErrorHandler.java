@@ -30,7 +30,7 @@ public class ErrorHandler {
         log.error("Error:", exception);
 
         return ErrorDTO.builder()
-                .status(exception.getStatus())
+                .status(HttpStatus.NOT_FOUND.getReasonPhrase())
                 .message(exception.getMessage())
                 .build();
     }
