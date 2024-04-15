@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import { menuOptions } from './screens/constants';
+import { menuOptions } from './screens';
 
 const App: React.FC = () => {
   const Tab = createBottomTabNavigator();

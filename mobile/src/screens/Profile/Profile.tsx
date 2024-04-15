@@ -1,17 +1,6 @@
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
-
-export type RootTabParamList = {
-    Profile: undefined;
-};
-
-type ProfileTabNavigationProp = BottomTabNavigationProp<RootTabParamList, 'Profile'>;
-
-interface ProfileProps {
-    navigation: ProfileTabNavigationProp
-}
-
-// ----
+import { ProfileProps } from "./interfaces";
 
 const Profile: React.FC<ProfileProps> = ({ navigation }) => {
     return (<Text>HOLA</Text>)

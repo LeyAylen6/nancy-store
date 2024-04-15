@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Button, Image, StyleSheet, Text, View } from "react-native";
-import { getProductById } from "../services/products";
+import { getProductById } from "../../services/products";
 
 const Detail = ({ route }: any) => {
 
-    const initialState = {id: "", name: "", price: 0, description: ""}
-    
+    const initialState = { id: "", name: "", price: 0, description: "" }
+
     const [product, setProduct] = useState(initialState)
 
     const { productId } = route.params;
@@ -13,23 +13,23 @@ const Detail = ({ route }: any) => {
     useEffect(() => {
         getProductById(productId)
             .then((product) => setProduct(product))
-    },[])
+    }, [])
 
     return (
         <View style={styles.container}>
             <View style={styles.detailContainer}>
-                <Image source={require('./../assets/test.jpg')} style={styles.image}/>
+                <Image source={require('./../assets/test.jpg')} style={styles.image} />
                 <Text>{product.name}</Text>
                 <Text>{product.price}</Text>
                 <Text>{product.description}</Text>
 
-                <Button title="Agregar al carrito" onPress={() => {}} />
+                <Button title="Agregar al carrito" onPress={() => { }} />
             </View>
-            
+
         </View>
     )
 }
- 
+
 const styles = StyleSheet.create({
     container: {
         padding: 10,
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         shadowColor: '#000',
         shadowOffset: {
-          width: 0,
-          height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,

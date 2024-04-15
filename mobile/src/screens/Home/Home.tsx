@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { getAllProducts } from "../services/products";
-import Card from "../components/Card";
+import { getAllProducts } from "../../services/products";
+import Card from "../../components/Card";
 import { HomeProps, Product } from "./interfaces";
 
 const Home: React.FC<HomeProps> = ({ navigation }) => {
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-       getAllProducts()
-        .then((products) => setProducts(products))
-    },[])
-    
+        getAllProducts()
+            .then((products) => setProducts(products))
+    }, [])
+
     return (
-        <View style={styles.container}> 
+        <View style={styles.container}>
             <ScrollView >
-                {products.map((product) => 
-                    <TouchableOpacity  
-                        key={product.id} 
+                {products.map((product) =>
+                    <TouchableOpacity
+                        key={product.id}
                         onPress={() => navigation.navigate('Detail', { productId: product.id })}
-                        >
-                        <Card item={product}/>
-                    </TouchableOpacity > 
+                    >
+                        <Card item={product} />
+                    </TouchableOpacity >
                 )}
             </ScrollView>
             {/* <Button
