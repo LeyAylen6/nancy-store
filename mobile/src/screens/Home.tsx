@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { getAllProducts } from "../services/productsApi";
+import { getAllProducts } from "../services/products";
 import Card from "../components/Card";
 import { HomeProps, Product } from "./interfaces";
 

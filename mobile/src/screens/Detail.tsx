@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Image, StyleSheet, Text, View } from "react-native";
-import { getProductById } from "../services/productsApi";
+import { getProductById } from "../services/products";
 
 const Detail = ({ route }: any) => {
 

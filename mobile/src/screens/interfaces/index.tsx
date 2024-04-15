@@ -1,3 +1,5 @@
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+
 export interface Product {
     id: string
     name: string
@@ -5,6 +7,13 @@ export interface Product {
     description: string
 }
 
+export type RootTabParamList = {
+    Home: undefined;
+    Detail: { productId: string };
+};
+
+type HomeTabNavigationProp = BottomTabNavigationProp<RootTabParamList, 'Home'>;
+
 export interface HomeProps {
-    navigation: any
+    navigation: HomeTabNavigationProp;
 }
