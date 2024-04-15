@@ -1,7 +1,7 @@
 import { Home, Truck, User } from "react-native-feather";
-import HomeTabStack from "../../Navigates/HomeTabStack";
-import Profile from "../Profile";
-import Sales from "../Sales";
+import HomeTabStack from "./Home";
+import Profile from "./Profile/Profile";
+import Sales from "./Sales/Sales";
 
 export const menuOptions = [
   {
