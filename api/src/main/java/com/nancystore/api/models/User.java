@@ -22,4 +22,10 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private ArrayList<ShoppingCart> orders;
+
+    public enum Role {
+        USER,
+        ADMIN,
+        DEV,
+    }
 }
