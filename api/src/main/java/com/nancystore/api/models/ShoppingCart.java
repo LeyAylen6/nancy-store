@@ -1,19 +1,30 @@
 package com.nancystore.api.models;
 
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Builder
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
 public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String date;
 
+    @Column(nullable = false)
     private String status;
 
+    @Column(nullable = false)
     private Double depositAmount;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -21,5 +32,5 @@ public class ShoppingCart {
     private User user;
 
     @OneToMany(mappedBy = "shoppingCart")
-    private ArrayList<ShoppingCartProduct> products;
+    private List<ShoppingCartProduct> products;
 }

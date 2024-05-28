@@ -9,13 +9,13 @@ import java.util.Optional;
 @AllArgsConstructor
 public class Product {
 
-    String id;
+    private String id;
 
-    String name;
+    private String name;
 
-    Double price;
+    private Double price;
 
-    String description;
+    private String description;
 
     public void merge(ProductDTO product) {
         this.name = product.getName();
